@@ -31,7 +31,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table id="dataTable" class="data_tabel table table-bordered"  width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -67,9 +67,9 @@
                                 </button>
                             </td>
                         </tr>
+                        {% include "admin/item/delete_item.html" %}
                         {% include "admin/item/detail_item.html" %}
                         {% include "admin/item/update_item.html" %}
-                        {% include "admin/item/delete_item.html" %}
                         {% endfor %}
                     </tbody>
                 </table>

@@ -26,25 +26,10 @@ time.sleep(2)
 driver.find_element(By.ID, "item_menu").click()
 
 # click modal new item
-driver.find_element(By.ID, "btn_update").click()
+driver.find_element(By.ID, "btn-delete").click()
 time.sleep(1)
-# clear
-elements_to_clear = ["name_item3", "price3", "stok3", "descript4"]
-for element_name in elements_to_clear:
-    driver.find_element(By.NAME, element_name).clear()
-    time.sleep(1)
-
-driver.find_element(By.NAME, "name_item3").send_keys("Sepatu Coba")
-driver.find_element(By.NAME, "price3").send_keys("2000" )
-driver.find_element(By.NAME, "stok3").send_keys("40" )
-x = driver.find_element(By.NAME, "unit3")
-select = Select(x)
-select.select_by_index(1)
-driver.find_element(By.NAME, "descript4").send_keys("Sepatu testing  " )
-
-time.sleep(2)
 # click menu Item
-driver.find_element(By.ID, "submit_update").click()
+driver.find_element(By.ID, "btn_del").click()
 
 time.sleep(4)
 # close

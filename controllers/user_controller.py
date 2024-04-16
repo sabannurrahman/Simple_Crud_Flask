@@ -15,7 +15,7 @@ def user():
                 'menu': 3,
             }      
         return render_template('admin/user/data_user.html', **render_args)
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))
 
 @user_bp.route('/Users/Insert', methods=['GET','POST'])
@@ -67,7 +67,7 @@ def insert_user():
             User.add_user(name_user, username, phone_number, address, position, password, created_at)
             flash('Success! Data added', 'success')
             return redirect(url_for('user.user'))
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))
 
 # delete data
@@ -77,5 +77,5 @@ def delete_user(id):
         User.delete_user(id)
         flash('Success! Data user deleted.','success')
         return redirect(url_for('user.user'))
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))

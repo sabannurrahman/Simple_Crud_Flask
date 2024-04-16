@@ -1,0 +1,141 @@
+{% include "layout/header.html" %}
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content container">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="navbar-brand ml-3">Inventory App</div>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <li class="pt-2">
+                            <a href="{{ url_for('home') }}" id="login_app" class="btn btn-primary ">Login</a>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div id="count_data" class="row">
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-6 col-md-12 mb-4">
+                            <div class="card bg-primary border-bottom-dark shadow h-100 py-2">
+                                <div  class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                                Total Items</div>
+                                            <div class="h5 mb-0 font-weight-bold text-white">{{ total_item }} Items</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-box-open fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-xl-6 col-md-12 mb-4">
+                            <div class="card bg-success border-bottom-dark shadow h-100 py-2">
+                                <div id="count_all" class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div id="tota" class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                                Total User</div>
+                                            <div class="h5 mb-0 font-weight-bold text-white">{{ total_user }} Users</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+
+                    <div id="all_data_item" class="row">
+                        {% for row in data %}
+                        <div class="col-6 ">
+                            <div class="card mb-3 shadow">
+                                <div class="row no-gutters">
+                                  <div class="col-md-4 ">
+                                    <img class="img-fluid " src="{{ url_for('static', filename='uploads/'+ row[5]) }}" alt="...">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">{{ row[1] }}</h5>
+                                      <p class="card-text">Rp.{{ "{:,.0f}".format(row[2]) }}</p>
+                                      <p class="card-text"><small class="text-muted">{{ row[3] }} {{ row[4] }}</small></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?php echo base_url('assets/dashboardTemp/'); ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets/dashboardTemp/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo base_url('assets/dashboardTemp/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo base_url('assets/dashboardTemp/'); ?>js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

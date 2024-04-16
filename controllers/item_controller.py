@@ -16,7 +16,7 @@ def AllItem():
                 'menu': 2,
             }      
         return render_template('admin/item/data_item.html', **render_args)
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))
 
 
@@ -67,7 +67,7 @@ def insert_item():
             Item.add_item(name_item, price, stok, unit, image, created_at, description)
             flash('Success! Data added', 'success')
             return redirect(url_for('item.AllItem'))
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))
 
 
@@ -84,7 +84,7 @@ def update_item():
         Item.edit_item(name_item, price,stok, unit, description, id)
         flash('Success! Data updated.', 'success')
         return redirect(url_for('item.AllItem'))
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))
 
 # delete data
@@ -94,5 +94,5 @@ def delete_item(id):
         Item.delete_item(id)
         flash('Success! Data deleted.', 'success')
         return redirect(url_for('item.AllItem'))
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))

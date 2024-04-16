@@ -10,6 +10,8 @@ options.add_experimental_option('detach', True)
 driver = webdriver.Chrome(options=options)
 # open app flask
 driver.get("http://127.0.0.1:5000/")
+driver.maximize_window()
+driver.find_element(By.ID, "login_app").click()
 
 # username and password FALSE
 # find elemnet by name

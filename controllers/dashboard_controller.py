@@ -12,7 +12,7 @@ def admin():
         total_item = Item.count_item()
         total_user = User.count_user()
         return render_template('admin/dashboard/dashboard.html', menu=1, total_item=total_item, total_user=total_user)
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))
 
 @dashboard_bp.route('/Pegawai_Dashboard')
@@ -20,5 +20,5 @@ def pegawai():
     if 'loggedin' in session:
         title = "Dashboard Pegawai"
         return render_template('pegawai/dashboard/dashboard.html', menu=1)
-    flash('You are not logged in.', 'danger')
+    flash('You are not logged in.', 'error')
     return redirect(url_for('home'))

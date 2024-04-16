@@ -14,8 +14,11 @@
           
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <a  href="{{ url_for('item.delete_item', id=row[0]) }}" class="submit_delete btn btn-danger" >Delete tes</a>
+           
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+                <a href="{{ url_for('item.delete_item', id=row[0]) }}" id="btn_del" class="btn btn-danger" >Delete Item</a>
+            <!-- </form> -->
           </div>
      </div>
  </div>
