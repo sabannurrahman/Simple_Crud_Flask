@@ -1,0 +1,14 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <script type="text/javascript">
+            Swal.fire({
+                type: '{{ category }}',
+                text: '{{ message }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+        {% endfor %}
+    {% endif %}
+{% endwith %}

@@ -1,0 +1,54 @@
+<div class="modal fade" id="update_item{{row[0]}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Item</h5>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('item.update_item') }}" method="POST">
+          <input type="hidden" name="id" value="{{row[0]}}">
+
+          <div class="form-group">
+            <label for="name_item" class="col-form-label">Name Item</label>
+            <input type="text" name="name_item3" class="form-control" value="{{row[1]}}" id="name_item">
+          </div>
+          
+          <div class="form-group">
+            <label for="price" class="col-form-label">Price</label>
+            <input type="text" name="price3"  class="form-control" value="{{row[2]}}" id="price">
+          </div>
+          <div class="form-group">
+            <label for="stok4" class="col-form-label">Stok</label>
+            <input type="text" name="stok3" class="form-control"  value="{{row[3]}}" id="stok4">
+          </div>
+            <div class="form-group">
+              <label for="unit4" class="col-form-label">Unit</label>
+              <select name="unit3" class="form-control" id="unit4">
+                <option value="notSelect">Select One</option>
+                {% if row[4] == "Buah": %}
+                <option value="Buah" selected>Buah</option>
+                <option value="Pasang">Pasang</option>
+                {% elif row[4] == "Pasang":%}
+                <option value="Buah">Buah</option>
+                <option value="Pasang" selected>Pasang</option>
+                {% else: %}
+                <option value="Buah">Buah</option>
+                <option value="Pasang">Pasang</option>
+                {% endif %}
+              </select>
+            </div>
+          <div class="form-group">
+            <label for="description3" class="col-form-label">Deskripsi</label>
+            <textarea name="descript4" class="form-control" style="height: 150px;" id="description3"
+              >{{row[7]}}</textarea>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+        <button type="submit" id="submit_update" class="btn btn-success" >Save</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

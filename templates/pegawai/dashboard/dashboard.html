@@ -1,0 +1,18 @@
+{% include "layout/header.html" %}
+{% include "layout/sidebar_pegawai.html" %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
+
+    <div class="alert alert-success" role="alert">
+        Success To Login <a href="#" class="alert-link">{{ session.name_user }}</a>, Your is {{ session.isAdmin }}
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+{% include "layout/footer.html" %}

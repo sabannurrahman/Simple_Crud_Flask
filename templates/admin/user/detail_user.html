@@ -1,0 +1,46 @@
+ <!-- detail madal-->
+ <div class="modal fade" id="detail_user{{row[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h2 class="modal-title font-weight-bold" id="exampleModalLabel">User ID : {{ row[0] }}</h2>
+             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">
+            <div class="card mb-3 p-4 border-0" >
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <p>Name</p>
+                        <p>Address</p>
+                        <p>Phone Number</p>
+                        <p>Possition</p>
+                        <p>Username</p>
+                        <p>Created At</p> 
+                    </div>
+                    <div class="col-1">
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                    </div>
+                    <div class="col-7">
+                        <p>{{ row[1] }}</p>
+                        <p>{{ row[4] }}</p> 
+                        <p>{{ row[3] }}</p> 
+                        <p>{{ row[5] }}</p> 
+                        <p>{{ row[2] }}</p> 
+                        <p>{{ row[7] }}</p> 
+
+                    </div>
+                </div>
+                  
+              </div>
+         </div>
+     </div>
+ </div>
+</div>

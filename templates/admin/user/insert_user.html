@@ -1,0 +1,73 @@
+<div class="modal fade" id="create_user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog shadow-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url_for('user.insert_user') }}"  method="POST">
+                    <div class="form-group">
+                        <label for="name_user2" class="col-form-label">Your Name</label>
+                        <input type="text" name="name_user" class="form-control" 
+                            id="name_user2" value="{{request.form.name_user }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="username2" class="col-form-label">username</label>
+                        <input type="text" name="username" class="form-control"  id="username2" value="{{request.form.username }}">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="phone_number" class="col-form-label">phone Number</label>
+                                <input type="text" name="phone_number" class="form-control"  id="phone_number" value="{{request.form.phone_number }}">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="position" class="col-form-label">Position</label>
+                                <select name="position" class="form-control" id="position">
+                                    <option value="not_select">Select One</option>
+                                    {% if request.form.position == "Admin": %}
+                                    <option value="Admin" selected>Admin</option>
+                                    <option value="Pegawai">Pegawai</option>
+                                    {% elif request.form.position == "Pegawai":%}
+                                    <option value="Admin">Admin</option>
+                                    <option value="Pegawai" selected>Pegawai</option>
+                                    {% else: %}
+                                    <option value="Admin">Admin</option>
+                                    <option value="Pegawai">Pegawai</option>
+                                    {% endif %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="password" value="{{request.form.password }}">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="pass_match" class="col-form-label">Password Match</label>
+                                <input type="password" name="pass_match" class="form-control"  id="pass_match" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="col-form-label">Address</label>
+                        <textarea class="form-control" style="height: 100px;" id="address" name="address">{{request.form.address }}</textarea>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" id="submit_create_user" class="btn btn-primary">Create User</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

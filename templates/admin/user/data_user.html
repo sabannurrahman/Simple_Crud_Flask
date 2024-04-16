@@ -1,0 +1,81 @@
+{% include "layout/header.html" %}
+{% include "layout/sidebar_admin.html" %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800 mb-4">Management User</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    {% if error: %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% else %}
+    <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="d-sm-flex align-items-center justify-content-between ">
+                <h6 class="m-0 font-weight-bold text-primary">Table Users</h6>
+                <button id="new_user" class="btn  btn-primary shadow-sm" data-toggle="modal"
+                    data-target="#create_user"><i class="fas fa-plus fa-sm text-white-50"></i> New User</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Possition</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for row in data_user %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ row[7] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[5] }}</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-success px-3" data-toggle="modal"
+                                    data-target="#detail_user{{row[0]}}">
+                                    <i class="fas fa-eye text-white-50"> </i> Detail
+                                </button>
+                                <button type="button" class="btn btn-sm btn-danger px-3" data-toggle="modal"
+                                    data-target="#delete_user{{row[0]}}">
+                                    <i class="fas fa-trash  text-white-50"> </i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                        {% include "admin/user/detail_user.html" %}
+                        {% include "admin/user/delete_user.html" %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+{% include "admin/user/insert_user.html" %}
+{% include "layout/footer.html" %}
